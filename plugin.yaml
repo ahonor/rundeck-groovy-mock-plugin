@@ -1,0 +1,27 @@
+name: Groovy Mock Plugin
+version: 1.0
+rundeckPluginVersion: 1.0
+author: alexh
+date: 5/10/12
+providers:
+    - name: rundeck-groovy-mock-plugin
+      service: ResourceModelSource
+      plugin-type: script
+      script-interpreter: /bin/bash -c
+      script-file: mock.groovy
+      script-args: "-u ${config.url} -t ${config.nodetype}"
+      title: Groovy Mock Plugin
+      description: Generates some fake node data in xml
+      resource-format: resourcexml
+      config:
+        - type: String
+          name: nodetype
+          title: Node Type
+          description: The NodeType to search
+          default: Server
+        - type: String
+          name: url
+          title: URL
+          description: The node authority URL
+          default: ''
+
